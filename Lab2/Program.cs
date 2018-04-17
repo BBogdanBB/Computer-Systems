@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Collections;
 
 namespace Lab2
 {
@@ -24,7 +19,8 @@ namespace Lab2
             Console.WriteLine($"answ : {binAnsw2} = {answ2}");
             Console.WriteLine();
             Console.WriteLine();
-            
+
+            Console.WriteLine(a + " / " + b);
             var (def3, r, q) = BinaryDivision.Divide(a, b);
             Console.WriteLine(def3);
             Console.WriteLine($"answ : remainder = {r} quotient = {q}");

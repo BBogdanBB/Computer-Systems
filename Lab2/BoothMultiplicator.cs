@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Lab2
 {
@@ -27,21 +23,21 @@ namespace Lab2
             tmp[0] = 1;
             Add(_M, tmp);
 
-            StringBuilder def = new StringBuilder(Print(A, Q, M, _M, Q_1) + "\n");
+            StringBuilder def = new StringBuilder($"A = {ToBinStr(A)}   Q = {ToBinStr(Q)}  Q-1 = {Convert.ToInt16(Q_1)}  M = {ToBinStr(M)}   _M = {ToBinStr(_M)}\n");
             for (int i = 0; i < len; i++)
             {
                 if (Q[0] == 0 && Q_1 == 1)
                 {
                     Add(A, M);
-                    def.Append("\n" + Print(A, Q, M, _M, Q_1) + " Add");
+                    def.Append("\n" + Print(A, Q, Q_1) + " Add");
                 }
                 else if (Q[0] == 1 && Q_1 == 0)
                 {
                     Add(A, _M);
-                    def.Append("\n" + Print(A, Q, M, _M, Q_1) + " Sub");
+                    def.Append("\n" + Print(A, Q, Q_1) + " Sub");
                 }
                 Shift(A, Q, ref Q_1);
-                def.Append("\n" + Print(A, Q, M, _M, Q_1) + " Shift\n");
+                def.Append("\n" + Print(A, Q, Q_1) + " Shift\n");
             }
             string binAnsw = ToBinStr(A) + ToBinStr(Q), temp = "";
             if (A[A.Length - 1] == 1)
@@ -80,9 +76,9 @@ namespace Lab2
                     Carry = 0;
             }
         }
-        static string Print(int[] A, int[] Q, int[] M, int[] _M, int Q_1)
+        static string Print(int[] A, int[] Q, int Q_1)
         {
-            return String.Format($"A = {ToBinStr(A)}   Q = {ToBinStr(Q)}  Q-1 = {Convert.ToInt16(Q_1)}  M = {ToBinStr(M)}   _M = {ToBinStr(_M)}");
+            return String.Format($"A = {ToBinStr(A)}   Q = {ToBinStr(Q)}  Q-1 = {Convert.ToInt16(Q_1)}");
         }
         static string ToBinStr(int[] arr)
         {
